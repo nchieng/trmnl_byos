@@ -19,14 +19,14 @@ WORKDIR /app
 COPY Gemfile Gemfile.lock ./
 
 # Uncomment the next line to switch to sqlite
-#ENV BYOS_DATABASE=sqlite
+ENV BYOS_DATABASE=sqlite
 
-RUN bundle install 
+RUN bundle install
 
 # Copy the rest of the application code
 COPY . .
 
-RUN bundle exec rake db:setup 
+RUN bundle exec rake db:setup
 
 # Expose the port that the application will run on
 EXPOSE 4567
